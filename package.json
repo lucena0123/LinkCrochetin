@@ -1,0 +1,25 @@
+{
+  "name": "crochetin-ecommerce",
+  "version": "1.0.0",
+  "description": "Crochetin E-commerce - Link Tree + Product Catalog",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "keywords": [
+    "astro",
+    "ecommerce",
+    "catalog",
+    "crochet"
+  ],
+  "author": "Crochetin Ateliê",
+  "license": "ISC",
+  "dependencies": {
+    "@astrojs/check": "^0.9.5",
+    "astro": "^5.16.0",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,202 @@
+{
+    "products": [
+        {
+            "id": "bolsa-001",
+            "slug": "bag-mari",
+            "name": "Bag Mari",
+            "description": "Totalmente feita à mão\nDesign sofisticado\nConfeccionada com a técnica do crochê moderno\nMaterial da estrutura da bolsa: fio náutico premium\nDetalhes em metal dourado ou prateado\nCrochê exclusivo na alça de ombro\nTamanho perfeito para o essencial: celular, chaves e documentos\nAlça removível",
+            "price": 279.90,
+            "category": "bolsa-fashionista",
+            "images": [
+                "/images/products/bag-mari.jpg"
+            ],
+            "material": "Fio Náutico Premium",
+            "colors": [
+                "bege",
+                "preto",
+                "cobre",
+                "verde militar"
+            ],
+            "dimensions": {
+                "width": 14,
+                "height": 25,
+                "depth": 5
+            },
+            "benefits": [
+                "Feita 100% à mão",
+                "Fio Náutico Premium",
+                "Alça em metal dourado ou prata",
+                "Tamanho ideal do dia a dia",
+                "Design exclusivo e moderno"
+            ],
+            "inStock": true,
+            "featured": true,
+            "tags": [
+                "artesanal",
+                "elegante",
+                "festa",
+                "corrente"
+            ]
+        },
+        {
+            "id": "bolsa-002",
+            "slug": "bag-ariel",
+            "name": "Bag Ariel",
+            "description": "Bolsa vibrante em turquesa com pingente decorativo. Fio grosso e textura marcante, ideal para looks despojados.",
+            "price": 149.90,
+            "category": "casual",
+            "images": [
+                "/images/products/bag-ariel.jpg"
+            ],
+            "material": "Fio de Malha",
+            "colors": [
+                "branco",
+                "rosa",
+                "bege",
+                "preto",
+                "cobre",
+                "verde militar"
+            ],
+            "dimensions": {
+                "width": 17,
+                "height": 21,
+                "depth": 4
+            },
+            "benefits": [
+                "Feita 100% à mão",
+                "Fio de malha premium",
+                "Alça em metal dourado ou prata",
+                "Tamanho ideal do dia a dia",
+                "Design exclusivo e moderno"
+            ],
+            "inStock": true,
+            "featured": true,
+            "tags": [
+                "artesanal",
+                "colorida",
+                "verão",
+                "casual"
+            ]
+        },
+        {
+            "id": "bolsa-003",
+            "slug": "bag-atena",
+            "name": "Bag Atena",
+            "description": "Bolsa estilo envelope em tom vinho elegante. Alça de crochê trançada e design moderno, perfeita para eventos noturnos.",
+            "price": 259.90,
+            "category": "bolsa-fashionista",
+            "images": [
+                "/images/products/bag-atena.jpg"
+            ],
+            "material": "Fio Náutico Premium",
+            "colors": [
+                "bege",
+                "preto",
+                "cobre",
+                "verde militar",
+                "vermelho",
+                "dourado"
+            ],
+            "dimensions": {
+                "width": 16,
+                "height": 22.5,
+                "depth": 2.5
+            },
+            "benefits": [
+                "Feita 100% à mão",
+                "Fio náutico premium",
+                "Alça em fio náutico premium",
+                "Tamanho ideal do dia a dia",
+                "Design exclusivo e moderno"
+            ],
+            "inStock": true,
+            "featured": false,
+            "tags": [
+                "artesanal",
+                "elegante",
+                "envelope",
+                "noite"
+            ]
+        },
+        {
+            "id": "bolsa-004",
+            "slug": "bag-lieta",
+            "name": "Bag Lieta",
+            "description": "Bolsa em tom caramelo com trançado sofisticado e alça de mão. Acabamento premium com pingente e fecho dourado.",
+            "price": 279.90,
+            "category": "bolsa-casual",
+            "images": [
+                "/images/products/bag-lieta.jpg"
+            ],
+            "material": "Fio de Malha Premium",
+            "colors": [
+                "bege",
+                "preto",
+                "caramelo",
+                "verde militar",
+                "areia",
+                "off-white",
+                "rosa"
+            ],
+            "dimensions": {
+                "width": 32,
+                "height": 22,
+                "depth": 12
+            },
+            "benefits": [
+                "Feita 100% à mão",
+                "Fio de malha premium",
+                "Alça em metal dourado ou prata",
+                "Tamanho ideal do dia a dia",
+                "Design exclusivo e moderno"
+            ],
+            "inStock": true,
+            "featured": true,
+            "tags": [
+                "artesanal",
+                "trançada",
+                "premium",
+                "sofisticada"
+            ]
+        },
+        {
+            "id": "bolsa-005",
+            "slug": "bag-cherry",
+            "name": "Bag Cherry",
+            "description": "Bolsa clássica em terracota com textura uniforme e alça de mão. Design atemporal e versátil para o dia a dia.",
+            "price": 299.90,
+            "category": "bolsa-classica",
+            "images": [
+                "/images/products/bag-cherry.jpg"
+            ],
+            "material": "Fio Náutico Premium",
+            "colors": [
+                "bege",
+                "preto",
+                "cobre",
+                "verde militar",
+                "off-white"
+            ],
+            "dimensions": {
+                "width": 15.5,
+                "height": 20,
+                "depth": 17
+            },
+            "benefits": [
+                "Feita 100% à mão",
+                "Fio Náutico premium",
+                "Alça em metal dourado ou prata",
+                "Tamanho ideal do dia a dia",
+                "Design exclusivo e moderno"
+            ],
+            "inStock": true,
+            "featured": false,
+            "tags": [
+                "artesanal",
+                "clássica",
+                "versátil",
+                "trabalho"
+            ]
+        }
+    ]
+}

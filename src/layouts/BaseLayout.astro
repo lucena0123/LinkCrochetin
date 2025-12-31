@@ -1,0 +1,58 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  wide?: boolean;
+}
+
+const { title, description = "✨Há 7 anos transformando o crochê em estilo, dicas e inspiração", wide = false } = Astro.props;
+
+// CSS global é importado para ser empacotado no build (evita referência quebrada ao /src)
+import '../styles/global.css';
+---
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary Meta Tags -->
+  <title>{title}</title>
+  <meta name="title" content={title}>
+  <meta name="description" content={description}>
+  <meta name="keywords" content="crochê, crochetin, curso de crochê, bolsas artesanais, materiais de crochê, Maceió">
+  <meta name="author" content="Crochetin Ateliê">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://crochetin.com.br/">
+  <meta property="og:title" content={title}>
+  <meta property="og:description" content={description}>
+  <meta property="og:image" content="https://crochetin.com.br/images/logo-crochetin.png">
+  <meta property="og:locale" content="pt_BR">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content={title}>
+  <meta property="twitter:description" content={description}>
+  <meta property="twitter:image" content="https://crochetin.com.br/images/logo-crochetin.png">
+  
+  <!-- PWA -->
+  <meta name="theme-color" content="#be996f">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/logo-crochetin.png">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class={`container ${wide ? 'wide' : ''}`}>
+    <slot />
+  </div>
+</body>
+</html>

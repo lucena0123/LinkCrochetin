@@ -1,0 +1,232 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import productsData from '../../data/products.json';
+
+const { products } = productsData;
+---
+
+<BaseLayout title="Catálogo de Bolsas - Crochetin" description="Confira nossas bolsas artesanais feitas à mão com muito carinho">
+  <div class="catalog-header">
+    <div class="header-row">
+      <a href="/" class="back-button" aria-label="Voltar ao início">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      </a>
+      <h1 class="catalog-title">Catálogo de Bolsas</h1>
+      <div class="header-spacer"></div>
+    </div>
+    <p class="catalog-subtitle">Bolsas artesanais feitas à mão com muito carinho</p>
+  </div>
+
+  <!-- Products Grid -->
+  <div class="products-grid">
+    {products.map((product) => (
+      <article class="product-card" data-category={product.category}>
+        <a href={`/catalogo/${product.slug}`} class="product-link">
+          <div class="product-image-wrapper">
+            <img 
+              src={product.images[0]} 
+              alt={product.name}
+              class="product-image"
+              loading="lazy"
+            />
+            {product.featured && <span class="badge-featured">Destaque</span>}
+            {!product.inStock && <span class="badge-out-of-stock">Esgotado</span>}
+          </div>
+          
+          <div class="product-info">
+            <h3 class="product-name">{product.name}</h3>
+            <p class="product-price">{product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</p>
+
+            
+            <button class="btn-view-details">Ver Detalhes</button>
+          </div>
+        </a>
+      </article>
+    ))}
+  </div>
+</BaseLayout>
+
+<style>
+  .catalog-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .header-row {
+    display: grid;
+    grid-template-columns: 48px 1fr 48px;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .header-spacer {
+    width: 48px;
+  }
+
+  .back-button {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--color-beige), var(--color-taupe));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-normal);
+    border: none;
+  }
+
+  .back-button:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-md);
+    color: white;
+    opacity: 0.95;
+  }
+
+  .catalog-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-black);
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .catalog-subtitle {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .product-card {
+    background: #EBE5D9; /* Beige background from reference */
+    border-radius: 32px;
+    padding: 16px;
+    transition: all var(--transition-normal);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  }
+
+  .product-link {
+    text-decoration: none;
+    color: inherit;
+    display: contents;
+  }
+
+  .product-image-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: white;
+    padding: 12px;
+    border-radius: 24px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  }
+
+  .product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+    transition: transform var(--transition-normal);
+  }
+
+  .product-card:hover .product-image {
+    transform: scale(1.05);
+  }
+
+  .badge-featured,
+  .badge-out-of-stock {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 6px 14px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    z-index: 10;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  }
+
+  .badge-featured {
+    background: linear-gradient(135deg, #f59e0b, #d97706);
+    color: white;
+  }
+
+  .badge-out-of-stock {
+    background: linear-gradient(135deg, #ef4444, #dc2626);
+    color: white;
+  }
+
+  .product-info {
+    padding: 0 8px 8px 8px; /* Slight padding for text alignment */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .product-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #3E2F25; /* Dark brown */
+    font-family: var(--font-sans);
+  }
+
+  .product-price {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #B08D55; /* Gold/Beige text */
+    margin-bottom: 1.5rem;
+    font-family: var(--font-sans);
+  }
+
+  .btn-view-details {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #8B735B, #6B5642); /* Brown gradient */
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+    box-shadow: 0 4px 12px rgba(107, 86, 66, 0.2);
+  }
+
+  .btn-view-details:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(107, 86, 66, 0.3);
+    background: linear-gradient(135deg, #9C8269, #7D654F);
+  }
+
+  @media (max-width: 768px) {
+    .products-grid {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Slightly wider cards on mobile */
+      gap: var(--spacing-md);
+    }
+
+    .catalog-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>

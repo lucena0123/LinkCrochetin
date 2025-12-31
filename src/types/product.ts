@@ -1,0 +1,22 @@
+export interface ProductDimensions {
+    width: number;
+    height: number;
+    depth: number;
+}
+
+export interface Product {
+    id: string;
+    slug: string;
+    name: string;
+    description: string;
+    price: number;
+    category: string;
+    images: string[];
+    colors: string[];
+    material?: string;
+    dimensions: ProductDimensions;
+    inStock: boolean;
+    featured: boolean;
+    tags: string[];
+    benefits?: string[];
+}

@@ -1,0 +1,39 @@
+{
+    "profile": {
+        "name": "@crochetinatelie",
+        "bio": "✨Há 7 anos transformando o crochê em estilo, dicas e inspiração!",
+        "image": "/images/logo-crochetin.png"
+    },
+    "links": [
+        {
+            "title": "Treinamento Crochetin",
+            "description": "Curso completo de crochê para iniciantes",
+            "url": "https://crochetin.hotmart.host/treinamento-crochetin",
+            "icon": "/images/treinamento.png",
+            "isImage": true
+        },
+        {
+            "title": "Catálogo Bags Crochetin",
+            "description": "Confira nossas bolsas artesanais",
+            "url": "/catalogo",
+            "icon": "/images/bags.png",
+            "isImage": true,
+            "internal": true
+        },
+        {
+            "title": "Materiais Crochetin",
+            "description": "Kits e materiais para seus projetos",
+            "url": "https://collshp.com/crochetin?share_channel_code=1&view=storefront",
+            "icon": "/images/materiais.png",
+            "isImage": true
+        }
+    ],
+    "social": {
+        "instagram": "https://instagram.com/crochetinatelie",
+        "whatsapp": "https://wa.me/558296927755"
+    },
+    "analytics": {
+        "enabled": true,
+        "googleAnalyticsId": "G-XXXXXXXXXX"
+    }
+}
