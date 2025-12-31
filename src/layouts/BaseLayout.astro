@@ -17,6 +17,12 @@ const imageUrl = image
   : new URL('/images/logo-crochetin.png', siteUrl).toString();
 const analyticsId = config.analytics?.googleAnalyticsId;
 const shouldLoadAnalytics = Boolean(config.analytics?.enabled && analyticsId && analyticsId !== 'G-XXXXXXXXXX');
+const analyticsScript = shouldLoadAnalytics
+  ? `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${analyticsId}', { anonymize_ip: true });`
+  : '';
 
 ---
 
@@ -65,12 +71,7 @@ const shouldLoadAnalytics = Boolean(config.analytics?.enabled && analyticsId && 
   {shouldLoadAnalytics && (
     <>
       <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${analyticsId}`}></script>
-      <script is:inline>
-        {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${analyticsId}', { anonymize_ip: true });`}
-      </script>
+      <script is:inline set:html={analyticsScript}></script>
     </>
   )}
 </head>
