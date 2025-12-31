@@ -1,5 +1,6 @@
 ---
 import type { Product } from '../../types/product';
+import config from '../../data/config.json';
 
 interface Props {
   product: Product;
@@ -7,12 +8,13 @@ interface Props {
 
 const { product } = Astro.props;
 
-const whatsappNumber = '558296927755';
+const whatsappBaseUrl = config.social.whatsapp;
 const material = product.material ?? 'Fio Náutico Premium';
 const colors = product.colors.join(', ');
 const priceBRL = product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 const message = `Olá! Tenho interesse na *${product.name}*.\n\nPreço: ${priceBRL}\nMaterial: ${material}\nCores: ${colors}`;
-const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+const separator = whatsappBaseUrl.includes('?') ? '&' : '?';
+const whatsappLink = `${whatsappBaseUrl}${separator}text=${encodeURIComponent(message)}`;
 ---
 
 <a 
