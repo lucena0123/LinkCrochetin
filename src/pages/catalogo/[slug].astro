@@ -18,6 +18,7 @@ interface Props {
 
 const { product } = Astro.props;
 
+const metaDescription = product.description.replace(/\s+/g, ' ').trim();
 const priceBRL = product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 const installmentBRL = (product.price / 3).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
@@ -32,7 +33,7 @@ const defaultBenefits = [
 const benefits = product.benefits ?? defaultBenefits;
 ---
 
-<BaseLayout title={product.name} description={`Bolsa de crochê ${product.name} - Crochetin Ateliê`}>
+<BaseLayout title={product.name} description={metaDescription} image={product.images[0]}>
   <div class="product-detail-wrapper">
     <div class="product-detail-container">
       <!-- Header & Back Button Row -->

@@ -5,7 +5,11 @@ import config from '../data/config.json';
 const { profile, links, social } = config;
 ---
 
-<BaseLayout title="Crochetin - Links Oficiais | @crochetinatelie">
+<BaseLayout
+  title="Crochetin - Links Oficiais | @crochetinatelie"
+  description={profile.bio}
+  image={profile.image}
+>
   <!-- Profile Section -->
   <div class="profile-section">
     <div class="profile-image-wrapper">

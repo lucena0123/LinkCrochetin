@@ -1,14 +1,23 @@
 ---
+import config from '../data/config.json';
+import '../styles/global.css';
+
 interface Props {
   title: string;
   description?: string;
   wide?: boolean;
+  image?: string;
 }
 
-const { title, description = "✨Há 7 anos transformando o crochê em estilo, dicas e inspiração", wide = false } = Astro.props;
+const { title, description = "✨Há 7 anos transformando o crochê em estilo, dicas e inspiração", wide = false, image } = Astro.props;
+const siteUrl = Astro.site ?? 'https://crochetin.com.br';
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const imageUrl = image
+  ? new URL(image, siteUrl).toString()
+  : new URL('/images/logo-crochetin.png', siteUrl).toString();
+const analyticsId = config.analytics?.googleAnalyticsId;
+const shouldLoadAnalytics = Boolean(config.analytics?.enabled && analyticsId && analyticsId !== 'G-XXXXXXXXXX');
 
-// CSS global é importado para ser empacotado no build (evita referência quebrada ao /src)
-import '../styles/global.css';
 ---
 
 <!DOCTYPE html>
@@ -16,6 +25,7 @@ import '../styles/global.css';
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="canonical" href={canonicalUrl}>
   
   <!-- Primary Meta Tags -->
   <title>{title}</title>
@@ -27,17 +37,19 @@ import '../styles/global.css';
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://crochetin.com.br/">
+  <meta property="og:url" content={canonicalUrl}>
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
-  <meta property="og:image" content="https://crochetin.com.br/images/logo-crochetin.png">
+  <meta property="og:image" content={imageUrl}>
+  <meta property="og:image:alt" content={title}>
+  <meta property="og:site_name" content="Crochetin">
   <meta property="og:locale" content="pt_BR">
   
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:title" content={title}>
   <meta property="twitter:description" content={description}>
-  <meta property="twitter:image" content="https://crochetin.com.br/images/logo-crochetin.png">
+  <meta property="twitter:image" content={imageUrl}>
   
   <!-- PWA -->
   <meta name="theme-color" content="#be996f">
@@ -49,6 +61,18 @@ import '../styles/global.css';
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+  {shouldLoadAnalytics && (
+    <>
+      <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${analyticsId}`}></script>
+      <script is:inline>
+        {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', '${analyticsId}', { anonymize_ip: true });`}
+      </script>
+    </>
+  )}
 </head>
 <body>
   <div class={`container ${wide ? 'wide' : ''}`}>
