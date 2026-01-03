@@ -29,7 +29,7 @@ Projeto Astro estático para landing de links oficiais e catálogo de bolsas art
 - **Perfil e links**: edite `src/data/config.json` (texto, URLs e ícones).  
   *Campos `internal` e `isImage` controlam alvo (`_self`/`_blank`) e renderização de ícone.*
 - **Produtos**: edite `src/data/products.json` (slug usado na rota `/catalogo/[slug]`).  
-  *Imagens devem existir em `/public/images/products/` ou apontar para URL válida.*
+  *Imagens devem existir em `/src/assets/products/` ou apontar para URL válida.*
 
 ## Estilo e identidade
 - Paleta e tokens em `src/styles/global.css`.  
@@ -53,4 +53,3 @@ Abra `http://localhost:4321` (porta padrão do Astro) para ver a landing e catá
 - **CTA do WhatsApp**: `src/components/social/WhatsAppButton.astro` (número e template de mensagem).
 - **Preço/parcelamento**: `src/pages/catalogo/[slug].astro` (lógica de exibição) e `products.json` (valores).
 - **Lista de produtos**: `src/pages/catalogo/index.astro` (badges, grid e CTA "Ver detalhes").
-

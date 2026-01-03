@@ -5,14 +5,14 @@
             "slug": "bag-mari",
             "name": "Bag Mari",
             "description": "Totalmente feita à mão\nDesign sofisticado\nConfeccionada com a técnica do crochê moderno\nMaterial da estrutura da bolsa: fio náutico premium\nDetalhes em metal dourado ou prateado\nCrochê exclusivo na alça de ombro\nTamanho perfeito para o essencial: celular, chaves e documentos\nAlça removível",
-            "price": 279.90,
+            "price": 279.9,
             "category": "bolsa-fashionista",
             "images": [
-                "/images/products/bag-mari-nude.jpg",
-                "/images/products/bag-mari-preta.png",
-                "/images/products/bag-mari-cobre.png",
-                "/images/products/bag-mari-verdemilitar.png",
-                "/images/products/bag-mari-dourada.jpg"
+                "bag-mari-nude.jpg",
+                "bag-mari-preta.png",
+                "bag-mari-cobre.png",
+                "bag-mari-verdemilitar.png",
+                "bag-mari-dourada.jpg"
             ],
             "material": "Fio Náutico Premium",
             "colors": [
@@ -48,16 +48,16 @@
             "slug": "bag-ariel",
             "name": "Bag Ariel",
             "description": "Bolsa vibrante em turquesa com pingente decorativo. Fio grosso e textura marcante, ideal para looks despojados.",
-            "price": 149.90,
+            "price": 149.9,
             "category": "casual",
             "images": [
-                "/images/products/bag-ariel-areia.jpg",
-                "/images/products/bag-ariel-caramelo.jpg",
-                "/images/products/bag-ariel-nude.jpg",
-                "/images/products/bag-ariel-offwhite.jpg",
-                "/images/products/bag-ariel-pink.jpg",
-                "/images/products/bag-ariel-preta.jpg",
-                "/images/products/bag-ariel-verdemilitar.jpg"
+                "bag-ariel-areia.jpg",
+                "bag-ariel-caramelo.jpg",
+                "bag-ariel-nude.jpg",
+                "bag-ariel-offwhite.jpg",
+                "bag-ariel-pink.jpg",
+                "bag-ariel-preta.jpg",
+                "bag-ariel-verdemilitar.jpg"
             ],
             "material": "Fio de Malha",
             "colors": [
@@ -95,15 +95,15 @@
             "slug": "bag-atena",
             "name": "Bag Atena",
             "description": "Bolsa estilo envelope em tom vinho elegante. Alça de crochê trançada e design moderno, perfeita para eventos noturnos.",
-            "price": 259.90,
+            "price": 259.9,
             "category": "bolsa-fashionista",
             "images": [
-                "/images/products/bag-atena-nude.jpg",
-                "/images/products/bag-atena-cobre.jpg",
-                "/images/products/bag-atena-dourada.jpg",
-                "/images/products/bag-atena-preta.jpg",
-                "/images/products/bag-atena-verdemilitar.jpg",
-                "/images/products/bag-atena-vermelha.jpg"
+                "bag-atena-nude.jpg",
+                "bag-atena-cobre.jpg",
+                "bag-atena-dourada.jpg",
+                "bag-atena-preta.jpg",
+                "bag-atena-verdemilitar.jpg",
+                "bag-atena-vermelha.jpg"
             ],
             "material": "Fio Náutico Premium",
             "colors": [
@@ -140,16 +140,16 @@
             "slug": "bag-lieta",
             "name": "Bag Lieta",
             "description": "Bolsa em tom caramelo com trançado sofisticado e alça de mão. Acabamento premium com pingente e fecho dourado.",
-            "price": 279.90,
+            "price": 279.9,
             "category": "bolsa-casual",
             "images": [
-                "/images/products/bag-lieta-areia.jpg",
-                "/images/products/bag-lieta-nude.jpg",
-                "/images/products/bag-lieta-caramelo.jpg",
-                "/images/products/bag-lieta-offwhite.jpg",
-                "/images/products/bag-lieta-pink.jpg",
-                "/images/products/bag-lieta-preta.jpg",
-                "/images/products/bag-lieta-verdemilitar.jpg"
+                "bag-lieta-areia.jpg",
+                "bag-lieta-nude.jpg",
+                "bag-lieta-caramelo.jpg",
+                "bag-lieta-offwhite.jpg",
+                "bag-lieta-pink.jpg",
+                "bag-lieta-preta.jpg",
+                "bag-lieta-verdemilitar.jpg"
             ],
             "material": "Fio de Malha Premium",
             "colors": [
@@ -187,13 +187,13 @@
             "slug": "bag-cherry",
             "name": "Bag Cherry",
             "description": "Bolsa clássica em terracota com textura uniforme e alça de mão. Design atemporal e versátil para o dia a dia.",
-            "price": 299.90,
+            "price": 299.9,
             "category": "bolsa-classica",
             "images": [
-                "/images/products/bag-cherry-nude.jpg",
-                "/images/products/bag-cherry-preta.jpg",
-                "/images/products/bag-cherry-cobre.jpg",
-                "/images/products/bag-cherry-dourado.jpg"
+                "bag-cherry-nude.jpg",
+                "bag-cherry-preta.jpg",
+                "bag-cherry-cobre.jpg",
+                "bag-cherry-dourado.jpg"
             ],
             "material": "Fio Náutico Premium",
             "colors": [

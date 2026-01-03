@@ -1,6 +1,7 @@
 ---
 import type { Product } from '../../types/product';
 import config from '../../data/config.json';
+import { formatColors } from '../../utils/colorLabels';
 
 interface Props {
   product: Product;
@@ -10,7 +11,7 @@ const { product } = Astro.props;
 
 const whatsappBaseUrl = config.social.whatsapp;
 const material = product.material ?? 'Fio Náutico Premium';
-const colors = product.colors.join(', ');
+const colors = formatColors(product.colors);
 const priceBRL = product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 const message = `Olá! Tenho interesse na *${product.name}*.\n\nPreço: ${priceBRL}\nMaterial: ${material}\nCores: ${colors}`;
 const separator = whatsappBaseUrl.includes('?') ? '&' : '?';
