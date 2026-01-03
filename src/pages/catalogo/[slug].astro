@@ -19,6 +19,7 @@ interface Props {
 const { product } = Astro.props;
 
 const metaDescription = product.description.replace(/\s+/g, ' ').trim();
+const hasMultipleImages = product.images.length > 1;
 const priceBRL = product.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 const installmentBRL = (product.price / 3).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
@@ -48,7 +49,55 @@ const benefits = product.benefits ?? defaultBenefits;
         <!-- Image Section -->
         <div class="image-card">
           <div class="badge-limitada">✨ Edição Limitada</div>
-          <img src={product.images[0]} alt={product.name} class="main-image" transition:name={`image-${product.slug}`} />
+          <div class="image-carousel" data-carousel tabindex="0" aria-label="Galeria de imagens">
+            <div class="image-stage">
+              <div class="image-track" data-carousel-track>
+                {product.images.map((imageSrc, index) => (
+                  <div class="image-slide" aria-hidden={index === 0 ? 'false' : 'true'}>
+                    <img
+                      src={imageSrc}
+                      alt={`${product.name} - imagem ${index + 1}`}
+                      class="main-image"
+                      loading={index === 0 ? 'eager' : 'lazy'}
+                      draggable="false"
+                      transition:name={`image-${product.slug}-${index}`}
+                    />
+                  </div>
+                ))}
+              </div>
+              {hasMultipleImages && (
+                <div class="carousel-arrows">
+                  <button type="button" class="carousel-arrow is-prev" data-carousel-prev aria-label="Imagem anterior">
+                    &lt;
+                  </button>
+                  <button type="button" class="carousel-arrow is-next" data-carousel-next aria-label="Proxima imagem">
+                    &gt;
+                  </button>
+                </div>
+              )}
+            </div>
+            {hasMultipleImages && (
+              <div class="image-thumbs" role="tablist" aria-label="Miniaturas">
+                {product.images.map((imageSrc, index) => (
+                  <button
+                    type="button"
+                    class={`thumb-button ${index === 0 ? 'is-active' : ''}`}
+                    data-carousel-dot={index}
+                    aria-label={`Ver imagem ${index + 1}`}
+                    aria-pressed={index === 0 ? 'true' : 'false'}
+                  >
+                    <img
+                      src={imageSrc}
+                      alt={`${product.name} - miniatura ${index + 1}`}
+                      class="thumb-image"
+                      loading="lazy"
+                      draggable="false"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </div>
 
         <!-- Price & Trust Compact Section -->
@@ -134,6 +183,109 @@ const benefits = product.benefits ?? defaultBenefits;
       </div>
     </div>
   </div>
+
+  {hasMultipleImages && (
+    <script is:inline>
+      (() => {
+  const carousels = Array.from(document.querySelectorAll('[data-carousel]'));
+  carousels.forEach((carousel) => {
+    const track = carousel.querySelector('[data-carousel-track]');
+    const stage = carousel.querySelector('.image-stage');
+    if (!track) return;
+    const slides = Array.from(track.querySelectorAll('.image-slide'));
+    const dots = Array.from(carousel.querySelectorAll('[data-carousel-dot]'));
+    const prevButton = carousel.querySelector('[data-carousel-prev]');
+    const nextButton = carousel.querySelector('[data-carousel-next]');
+    const slideCount = slides.length;
+    if (slideCount === 0) return;
+
+    const updateDots = (index) => {
+      dots.forEach((dot, dotIndex) => {
+        const isActive = dotIndex === index;
+        dot.classList.toggle('is-active', isActive);
+        dot.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        if (isActive) {
+          dot.setAttribute('aria-current', 'true');
+        } else {
+          dot.removeAttribute('aria-current');
+        }
+      });
+    };
+
+    const clampIndex = (index) => Math.max(0, Math.min(slideCount - 1, index));
+    const setActive = (index) => {
+      const nextIndex = clampIndex(index);
+      track.style.transform = `translateX(-${nextIndex * 100}%)`;
+      slides.forEach((slide, slideIndex) => {
+        slide.setAttribute('aria-hidden', slideIndex === nextIndex ? 'false' : 'true');
+      });
+      updateDots(nextIndex);
+      currentIndex = nextIndex;
+    };
+
+    let currentIndex = 0;
+    setActive(currentIndex);
+
+    prevButton?.addEventListener('click', () => {
+      setActive(currentIndex - 1);
+    });
+
+    nextButton?.addEventListener('click', () => {
+      setActive(currentIndex + 1);
+    });
+
+    dots.forEach((dot, index) => {
+      dot.addEventListener('click', () => {
+        setActive(index);
+      });
+    });
+
+    carousel.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        setActive(currentIndex - 1);
+      }
+      if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        setActive(currentIndex + 1);
+      }
+    });
+
+    let startX = 0;
+    let startY = 0;
+    let pointerActive = false;
+    const swipeThreshold = 50;
+
+    stage?.addEventListener('pointerdown', (event) => {
+      pointerActive = true;
+      startX = event.clientX;
+      startY = event.clientY;
+      carousel.classList.add('is-dragging');
+    });
+
+    stage?.addEventListener('pointerup', (event) => {
+      if (!pointerActive) return;
+      const deltaX = event.clientX - startX;
+      const deltaY = event.clientY - startY;
+      pointerActive = false;
+      carousel.classList.remove('is-dragging');
+      if (Math.abs(deltaX) < swipeThreshold) return;
+      if (Math.abs(deltaX) < Math.abs(deltaY)) return;
+      if (deltaX < 0) {
+        setActive(currentIndex + 1);
+      } else {
+        setActive(currentIndex - 1);
+      }
+    });
+
+    stage?.addEventListener('pointercancel', () => {
+      pointerActive = false;
+      carousel.classList.remove('is-dragging');
+    });
+  });
+})();
+    </script>
+  )}
 </BaseLayout>
 
 <style>
@@ -203,14 +355,141 @@ const benefits = product.benefits ?? defaultBenefits;
     position: relative;
     box-shadow: var(--shadow-sm);
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .image-carousel {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    user-select: none;
+  }
+
+  .image-carousel.is-dragging .image-stage {
+    cursor: grabbing;
+  }
+
+  .image-carousel:focus-visible {
+    outline: 2px solid #3E2F25;
+    outline-offset: 3px;
+  }
+
+  .image-stage {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: #f5f2ed;
+    cursor: grab;
+    touch-action: pan-y;
+  }
+
+  .image-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.45s ease;
+    will-change: transform;
+  }
+
+  .image-slide {
+    flex: 0 0 100%;
+    height: 100%;
+    display: flex;
   }
 
   .main-image {
     width: 100%;
-    border-radius: 1rem;
     display: block;
-    aspect-ratio: 4/3; /* More compact than square */
+    height: 100%;
     object-fit: cover;
+    pointer-events: none;
+  }
+
+  .carousel-arrows {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.5rem;
+    pointer-events: none;
+  }
+
+  .carousel-arrow {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(245, 242, 237, 0.95);
+    color: #3E2F25;
+    font-size: 1.25rem;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    pointer-events: auto;
+  }
+
+  .carousel-arrow:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.16);
+  }
+
+  .carousel-arrow:focus-visible {
+    outline: 2px solid #3E2F25;
+    outline-offset: 2px;
+  }
+
+  .image-thumbs {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(64px, 1fr);
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding: 0 0.25rem 0.25rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .image-thumbs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .thumb-button {
+    border: 1px solid #e1d7cb;
+    border-radius: 0.75rem;
+    padding: 0;
+    background: white;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
+    scroll-snap-align: start;
+  }
+
+  .thumb-button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+  }
+
+  .thumb-button.is-active {
+    border-color: #3E2F25;
+    box-shadow: 0 6px 18px rgba(62,47,37,0.2);
+    transform: translateY(-2px);
+  }
+
+  .thumb-button:focus-visible {
+    outline: 2px solid #3E2F25;
+    outline-offset: 2px;
+  }
+
+  .thumb-image {
+    width: 100%;
+    display: block;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    pointer-events: none;
   }
 
   .badge-limitada {

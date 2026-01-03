@@ -8,14 +8,19 @@
             "price": 279.90,
             "category": "bolsa-fashionista",
             "images": [
-                "/images/products/bag-mari.jpg"
+                "/images/products/bag-mari-nude.jpg",
+                "/images/products/bag-mari-preta.png",
+                "/images/products/bag-mari-cobre.png",
+                "/images/products/bag-mari-verdemilitar.png",
+                "/images/products/bag-mari-dourada.jpg"
             ],
             "material": "Fio Náutico Premium",
             "colors": [
-                "bege",
-                "preto",
+                "nude",
+                "preta",
                 "cobre",
-                "verde militar"
+                "verdemilitar",
+                "dourada"
             ],
             "dimensions": {
                 "width": 14,
@@ -46,16 +51,23 @@
             "price": 149.90,
             "category": "casual",
             "images": [
-                "/images/products/bag-ariel.jpg"
+                "/images/products/bag-ariel-areia.jpg",
+                "/images/products/bag-ariel-caramelo.jpg",
+                "/images/products/bag-ariel-nude.jpg",
+                "/images/products/bag-ariel-offwhite.jpg",
+                "/images/products/bag-ariel-pink.jpg",
+                "/images/products/bag-ariel-preta.jpg",
+                "/images/products/bag-ariel-verdemilitar.jpg"
             ],
             "material": "Fio de Malha",
             "colors": [
-                "branco",
-                "rosa",
-                "bege",
-                "preto",
-                "cobre",
-                "verde militar"
+                "areia",
+                "caramelo",
+                "nude",
+                "offwhite",
+                "pink",
+                "preta",
+                "verdemilitar"
             ],
             "dimensions": {
                 "width": 17,
@@ -86,16 +98,21 @@
             "price": 259.90,
             "category": "bolsa-fashionista",
             "images": [
-                "/images/products/bag-atena.jpg"
+                "/images/products/bag-atena-nude.jpg",
+                "/images/products/bag-atena-cobre.jpg",
+                "/images/products/bag-atena-dourada.jpg",
+                "/images/products/bag-atena-preta.jpg",
+                "/images/products/bag-atena-verdemilitar.jpg",
+                "/images/products/bag-atena-vermelha.jpg"
             ],
             "material": "Fio Náutico Premium",
             "colors": [
-                "bege",
-                "preto",
+                "nude",
                 "cobre",
-                "verde militar",
-                "vermelho",
-                "dourado"
+                "dourada",
+                "preta",
+                "verdemilitar",
+                "vermelha"
             ],
             "dimensions": {
                 "width": 16,
@@ -126,17 +143,23 @@
             "price": 279.90,
             "category": "bolsa-casual",
             "images": [
-                "/images/products/bag-lieta.jpg"
+                "/images/products/bag-lieta-areia.jpg",
+                "/images/products/bag-lieta-nude.jpg",
+                "/images/products/bag-lieta-caramelo.jpg",
+                "/images/products/bag-lieta-offwhite.jpg",
+                "/images/products/bag-lieta-pink.jpg",
+                "/images/products/bag-lieta-preta.jpg",
+                "/images/products/bag-lieta-verdemilitar.jpg"
             ],
             "material": "Fio de Malha Premium",
             "colors": [
-                "bege",
-                "preto",
-                "caramelo",
-                "verde militar",
                 "areia",
-                "off-white",
-                "rosa"
+                "nude",
+                "caramelo",
+                "offwhite",
+                "pink",
+                "preta",
+                "verdemilitar"
             ],
             "dimensions": {
                 "width": 32,
@@ -167,15 +190,17 @@
             "price": 299.90,
             "category": "bolsa-classica",
             "images": [
-                "/images/products/bag-cherry.jpg"
+                "/images/products/bag-cherry-nude.jpg",
+                "/images/products/bag-cherry-preta.jpg",
+                "/images/products/bag-cherry-cobre.jpg",
+                "/images/products/bag-cherry-dourado.jpg"
             ],
             "material": "Fio Náutico Premium",
             "colors": [
-                "bege",
-                "preto",
+                "nude",
+                "preta",
                 "cobre",
-                "verde militar",
-                "off-white"
+                "dourado"
             ],
             "dimensions": {
                 "width": 15.5,
