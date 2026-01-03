@@ -458,7 +458,7 @@ const benefits = product.benefits ?? defaultBenefits;
   }
 
   .thumb-button {
-    border: 1px solid #e1d7cb;
+    border: 1px solid #e7ded2;
     border-radius: 0.75rem;
     padding: 0;
     background: white;
@@ -474,14 +474,14 @@ const benefits = product.benefits ?? defaultBenefits;
   }
 
   .thumb-button.is-active {
-    border-color: #3E2F25;
-    box-shadow: 0 6px 18px rgba(62,47,37,0.2);
-    transform: translateY(-2px);
+    border-color: #e7ded2;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+    transform: translateY(-1px);
   }
 
   .thumb-button:focus-visible {
-    outline: 2px solid #3E2F25;
-    outline-offset: 2px;
+    outline: none;
+    box-shadow: inset 0 0 0 2px rgba(0,0,0,0.12);
   }
 
   .thumb-image {

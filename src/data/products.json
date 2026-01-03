@@ -82,7 +82,7 @@
                 "Design exclusivo e moderno"
             ],
             "inStock": true,
-            "featured": true,
+            "featured": false,
             "tags": [
                 "artesanal",
                 "colorida",
@@ -127,7 +127,7 @@
                 "Design exclusivo e moderno"
             ],
             "inStock": true,
-            "featured": false,
+            "featured": true,
             "tags": [
                 "artesanal",
                 "elegante",
