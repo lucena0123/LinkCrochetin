@@ -10,6 +10,7 @@ export interface Product {
     name: string;
     description: string;
     price: number;
+    lessonUrl?: string;
     category: string;
     images: string[];
     colors: string[];

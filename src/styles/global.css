@@ -345,6 +345,10 @@ body::before {
     animation-delay: 0.3s;
 }
 
+.link-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
 @media (max-width: 768px) {
     .container {
         padding: var(--spacing-md) var(--spacing-sm);

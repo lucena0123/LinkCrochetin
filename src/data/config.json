@@ -26,6 +26,14 @@
             "url": "https://collshp.com/crochetin?share_channel_code=1&view=storefront",
             "icon": "/images/materiais.png",
             "isImage": true
+        },
+        {
+            "title": "Aulas Avulsas",
+            "description": "Escolha uma bolsa para a aula avulsa",
+            "url": "/aulas-avulsas",
+            "icon": "/images/aulas-avulsas.png",
+            "isImage": true,
+            "internal": true
         }
     ],
     "social": {
